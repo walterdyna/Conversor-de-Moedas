@@ -11,7 +11,7 @@ function convertValues() {
 
     const dolarToday = 4.78
     const euroToday = 5.21
-    const bitcoinToday = 0.0000078
+    const bitcoinToday = 143694.55
 
     if (currencySelect.value == "dolar") {  //se o select estiver em dola entra aqui
         currencyValueConvert.innerHTML = new Intl.NumberFormat("en-US", {
@@ -43,7 +43,7 @@ function convertValues() {
 
 function changeCurrency() {
     const currencyName = document.getElementById("currency-name")
-    const currencyImagem = document.querySelector("currency-img")
+    const currencyImagem = document.querySelector(".currency-img")
 
     if (currencySelect.value == "dolar") {
         currencyName.innerHTML = "Dólar americano"
@@ -52,13 +52,15 @@ function changeCurrency() {
 
     if (currencySelect.value == "euro") {
         currencyName.innerHTML = "Euro"
-        currencyImagem.src="./assets/dolar.png"
+        currencyImagem.src = "./assets/euro.png"
     }
 
     if (currencySelect.value == "btc") {
         currencyName.innerHTML = "Bitcoin"
         currencyImagem.src = './assets/btc.png'
     }
+
+    convertValues()
 
 }
 currencySelect.addEventListener("change", changeCurrency)
