@@ -5,7 +5,7 @@ const currencySelect = document.querySelector(".currency-select")
 const currencySelectPrimari = document.querySelector(".currency-select-primari")
 const convertFrom = document.querySelector(".convert-from")
 
-let isConvertValuesPrimario = true;
+const isConvertValuesPrimario = true;
 
 
 //---> converção primaria
@@ -15,36 +15,42 @@ function convertValuesPrimario() {
     const entryValue = document.querySelector(".entry-value")
 
     const realToday = 1
-    const TodayDolar = 4.78
-    const euroToday = 5.21
-    const dfiToday = 1.71
-    const bitcoinToday = 143694.55
+    const todayDolar = 4.78
+    const todayEuro = 5.21
+    const todayDfi = 1.71
+    const todayBitcoin = 143694.55
+
+    if (convertFrom.value == "real") {  //se o select estiver em Real entra aqui
+        entryValue.innerHTML = new Intl.NumberFormat("br-BR", {
+            currency: "BRL"
+        }).format(inputCurrencyValue * realToday)
+    }
 
     if (convertFrom.value == "dolar") {  //se o select estiver em dola entra aqui
         entryValue.innerHTML = new Intl.NumberFormat("en-US", {
             currency: "USD"
-        }).format(inputCurrencyValue * TodayDolar)
+        }).format(inputCurrencyValue * todayDolar)
     }
 
     if (convertFrom.value == "euro") {  //se o select estiver em EURO entra aqui
         entryValue.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
-        }).format(inputCurrencyValue * euroToday)
+        }).format(inputCurrencyValue * todayEuro)
     }
 
     if (convertFrom.value == "dfi") {  //se o select estiver em DFI entra aqui
         entryValue.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "FDI"
-        }).format(inputCurrencyValue * dfiToday)
+        }).format(inputCurrencyValue * todayDfi)
     }
 
     if (convertFrom.value == "btc") {  //se o select estiver em DFI entra aqui
         entryValue.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "BTC"
-        }).format(inputCurrencyValue * bitcoinToday)
+        }).format(inputCurrencyValue * todayBitcoin)
     }
 
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("br-BR", {
@@ -137,7 +143,7 @@ function convertValues() {
         currencyValueConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL"
-        }).format(inputCurrencyValue)
+        }).format(inputCurrencyValue / realToday)
 
     }
 
