@@ -118,7 +118,7 @@ async function convertValues() {
     const btcbrlBid = await getBtcBrlBid();
     const bitcoinToday = btcbrlBid;
 
-    const ethbrlBid = await getBtcBrlBid();
+    const ethbrlBid = await getEthBrlBid();
     const ethToday = ethbrlBid;
 
     if (currencySelect.value == "dolar") {  //se o select estiver em dola entra aqui
@@ -136,10 +136,10 @@ async function convertValues() {
     }
 
     if (currencySelect.value == "libra") {
-        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
+        currencyValueConvert.innerHTML = new Intl.NumberFormat("en-GB", {
           style: "currency",
-          currency: "GBP",
-        }).format(inputCurrencyValue / libraToday);
+          currency: "GBP"
+        }).format(inputCurrencyValue / libraToday)
       }
 
     if (currencySelect.value == "btc") {  //se o select estiver em BTC entra aqui
@@ -150,7 +150,7 @@ async function convertValues() {
 
     }
 
-    if (currencySelect.value == "eth") {  //se o select estiver em DFI entra aqui
+    if (currencySelect.value == "eth") {  //se o select estiver em ETH entra aqui
         currencyValueConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "ETH"
@@ -265,7 +265,7 @@ async function getUsdBrlBid() {
     return data['BTCBRL']['bid'];
   }
 
-  async function getBtcBrlBid() {
+  async function getEthBrlBid() {
     const response = await fetch('https://economia.awesomeapi.com.br/last/ETH-BRL');
     const data = await response.json();
     return data['ETHBRL']['bid'];
