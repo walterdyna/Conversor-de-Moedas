@@ -179,7 +179,7 @@ function changeCurrency() {
     const currencyImagem = document.querySelector(".currency-img")
 
     if (currencySelect.value == "dolar") {
-        currencyName.innerHTML = "Dólar americano"
+        currencyName.innerHTML = "US$ Dólar americano"
         currencyImagem.src = "./assets/dolar.png"
     }
 
@@ -204,7 +204,7 @@ function changeCurrency() {
     }
 
     if (currencySelect.value == "real") {
-        currencyName.innerHTML = "Real Brasileiro"
+        currencyName.innerHTML = "R$ Real Brasileiro"
         currencyImagem.src = './assets/real.png'
     }
 
@@ -270,4 +270,49 @@ async function getUsdBrlBid() {
     const data = await response.json();
     return data['ETHBRL']['bid'];
   }
+
+  fetch('https://economia.awesomeapi.com.br/last/USD-BRL')
+  .then(response => response.json())
+  .then(data => {
+    if (data['USDBRL']) {
+      const dolavalue = data['USDBRL']['bid']; // Obtém o valor de compra (bid) do Ethereum em reais
+      document.getElementById('dola-value').textContent = `US$ Dólar: R$ ${dolavalue}`;
+    }
+})
+
+fetch('https://economia.awesomeapi.com.br/last/EUR-BRL')
+.then(response => response.json())
+.then(data => {
+  if (data['EURBRL']) {
+    const eurovalue = data['EURBRL']['bid']; // Obtém o valor de compra (bid) do Ethereum em reais
+    document.getElementById('euro-value').textContent = `€ Euro: R$ ${eurovalue}`;
+  }
+})
+
+fetch('https://economia.awesomeapi.com.br/last/GBP-BRL')
+.then(response => response.json())
+.then(data => {
+  if (data['GBPBRL']) {
+    const libraValue = data['GBPBRL']['bid']; // Obtém o valor de compra (bid) do Ethereum em reais
+    document.getElementById('libra-value').textContent = `£ Libra: R$ ${libraValue}`;
+  }
+})
+
+fetch('https://economia.awesomeapi.com.br/last/BTC-BRL')
+.then(response => response.json())
+.then(data => {
+  if (data['BTCBRL']) {
+    const bitcoinValue = data['BTCBRL']['bid']; // Obtém o valor de compra (bid) do Ethereum em reais
+    document.getElementById('bitcoin-value').textContent = `₿ Bitcoin: R$ ${bitcoinValue}`;
+  }
+})
+
+    fetch('https://economia.awesomeapi.com.br/last/ETH-BRL')
+      .then(response => response.json())
+      .then(data => {
+        if (data['ETHBRL']) {
+          const ethereumValue = data['ETHBRL']['bid']; // Obtém o valor de compra (bid) do Ethereum em reais
+          document.getElementById('ethereum-value').textContent = `⧫ Ethereum: R$ ${ethereumValue}`;
+        }
+    })
 

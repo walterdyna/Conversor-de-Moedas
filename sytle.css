@@ -84,7 +84,7 @@ button:active {
 section {
     border: 1px solid #772fd3;
     border-radius: 20px;
-    margin-top: 36px;
+    margin-top: 40px;
     padding: 12px;
     display: flex;
     flex-direction: column;
@@ -146,12 +146,67 @@ section {
 
 }
 
+.valorHoje{
+    width: 10px;
+    font-size: 20px;
+    font-weight: 25px;
+    background-color: #d80606;
+    border-radius: 15px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
+    cursor: pointer;
+    align-items: center;
+    margin-left: 50px;
+    
+}
+
+#dola-value{
+    margin-left: 500px;
+}
+
+.vakinha {
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin-left: 1150px;
+    margin-bottom: 10px;
+    width: 10px;
+    color: blue;
+    font-weight: bold;
+    font-size: 25px;
+    font-weight: 25px;
+    padding: 5px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 1.9));
+    
+    }
+
+.vakinha-texto{
+
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin-left: 1050px;
+    margin-bottom: 10px;
+    width: auto;
+    font-size: 30px;
+    font-weight: 30px;
+    color: #d80606;
+    font-weight: bold;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 1.9));
+
+}
+
 /* responsivo */
 
 
 @media (max-width: 768px) {
     body {
         background-size: cover;
+    }
+    .logo{
+        margin-top: 0;
     }
 
     main {
@@ -182,6 +237,22 @@ section {
         padding: 8px;
     }
 
+    .valorHoje{
+        display: none;
+    }
+
+    .vakinha{
+        display: flex;
+        margin: 0;
+        margin-left: 187px;
+    }
+
+    .vakinha-texto{
+        display: flex;
+        margin: 0;
+        
+    }
+
     .currency {
         font-size: 12px;
     }
@@ -194,5 +265,6 @@ section {
     .currency-img {
         width: 30px;
         height: 30px;
+        margin-top: 0;
     }
 }
