@@ -182,12 +182,11 @@ section {
     
     }
 
-.vakinha-texto{
+.vakinha-texto, ul{
     text-align: center;
     justify-content: center;
     align-items: center;
-    border-radius: 30px;
-    
+    border-radius: 8px;
     margin-bottom: 10px;
     width: auto;
     font-size: 30px;
